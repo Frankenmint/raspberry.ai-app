@@ -25,7 +25,7 @@ export class ExperimentationTelemetry implements IExperimentationTelemetry {
 			case 'vscode-exploration':
 				targetPopulation = TargetPopulation.Internal;
 				break;
-			case 'blueberryai':
+			case 'raspberryai':
 				targetPopulation = TargetPopulation.Team;
 				break;
 			default:

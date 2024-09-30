@@ -229,31 +229,31 @@ export class ResizeAuxiliaryBarWidthAction extends Action2 {
 
 registerAction2(ResizeAuxiliaryBarWidthAction);
 
-class FocusblueberryAIExtensionAction extends Action2 {
-	static readonly ID = 'workbench.action.focusblueberryAIExtension';
+class FocusraspberryaiExtensionAction extends Action2 {
+	static readonly ID = 'workbench.action.focusraspberryaiExtension';
 	static readonly LABEL = localize2(
-		"focusblueberryAIExtension",
-		"Focus into blueberryAI Extension",
+		"focusraspberryaiExtension",
+		"Focus into raspberryai Extension",
 	);
 
 	constructor() {
 		super({
-			id: FocusblueberryAIExtensionAction.ID,
-			title: FocusblueberryAIExtensionAction.LABEL,
+			id: FocusraspberryaiExtensionAction.ID,
+			title: FocusraspberryaiExtensionAction.LABEL,
 			category: Categories.View,
 			f1: true,
-			// keybinding: do not add keybinding CTRL/CMD L here, it comes from blueberryai extension
+			// keybinding: do not add keybinding CTRL/CMD L here, it comes from raspberryai extension
 		});
 	}
 
 	override async run(accessor: ServicesAccessor): Promise<void> {
-		// focus blueberryai extension
+		// focus raspberryai extension
 		const commandService = accessor.get(ICommandService);
-		commandService.executeCommand('blueberryai.focusContinueInput');
+		commandService.executeCommand('raspberryai.focusContinueInput');
 	}
 }
 
-registerAction2(FocusblueberryAIExtensionAction);
+registerAction2(FocusraspberryaiExtensionAction);
 
 MenuRegistry.appendMenuItems([
 	{
@@ -261,7 +261,7 @@ MenuRegistry.appendMenuItems([
 		item: {
 			group: '0_workbench_toggles',
 			command: {
-				id: FocusblueberryAIExtensionAction.ID,
+				id: FocusraspberryaiExtensionAction.ID,
 				title: `New Chat (${KeyModUtils.keyModToString(KeyMod.CtrlCmd)} + ${KeyCodeUtils.toString(KeyCode.KeyL)})`,
 			},
 			order: -1,
@@ -269,22 +269,22 @@ MenuRegistry.appendMenuItems([
 	},
 ]);
 
-// Following is a only blueberryAI related action, need to refactor these type of actions to separate file
+// Following is a only raspberryai related action, need to refactor these type of actions to separate file
 import { IOpenerService } from 'vs/platform/opener/common/opener';
 import { URI } from 'vs/base/common/uri';
 import { IProductService } from 'vs/platform/product/common/productService';
 
-class OpenblueberryAIDocsAction extends Action2 {
-	static readonly ID = 'workbench.action.openblueberryAIDocs';
+class OpenraspberryaiDocsAction extends Action2 {
+	static readonly ID = 'workbench.action.openraspberryaiDocs';
 	static readonly LABEL = localize2(
-		"openblueberryAIDocs",
-		"Open blueberryAI Documentation",
+		"openraspberryaiDocs",
+		"Open raspberryai Documentation",
 	);
 
 	constructor() {
 		super({
-			id: OpenblueberryAIDocsAction.ID,
-			title: OpenblueberryAIDocsAction.LABEL,
+			id: OpenraspberryaiDocsAction.ID,
+			title: OpenraspberryaiDocsAction.LABEL,
 			category: Categories.Help,
 			f1: true,
 		});
@@ -293,21 +293,21 @@ class OpenblueberryAIDocsAction extends Action2 {
 	override async run(accessor: ServicesAccessor): Promise<void> {
 		const openerService = accessor.get(IOpenerService);
 		const productService = accessor.get(IProductService);
-		if (!productService.blueberryAILinks?.docs) {
+		if (!productService.raspberryaiLinks?.docs) {
 			return;
 		}
-		await openerService.open(URI.parse(productService.blueberryAILinks?.docs));
+		await openerService.open(URI.parse(productService.raspberryaiLinks?.docs));
 	}
 }
 
-registerAction2(OpenblueberryAIDocsAction);
+registerAction2(OpenraspberryaiDocsAction);
 
 MenuRegistry.appendMenuItems([
 	{
 		id: MenuId.CommandCenter,
 		item: {
 			command: {
-				id: OpenblueberryAIDocsAction.ID,
+				id: OpenraspberryaiDocsAction.ID,
 				title: 'Docs',
 			},
 			order: 150,
