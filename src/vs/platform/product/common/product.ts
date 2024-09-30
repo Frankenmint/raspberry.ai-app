@@ -59,11 +59,11 @@ else {
 	if (Object.keys(product).length === 0) {
 		Object.assign(product, {
 			version: '1.90.0-dev',
-			nameShort: 'blueberryAI Dev',
-			nameLong: 'blueberryAI Dev',
-			applicationName: 'blueberryai',
-			dataFolderName: '.blueberryai',
-			urlProtocol: 'blueberryai',
+			nameShort: 'raspberryai Dev',
+			nameLong: 'raspberryai Dev',
+			applicationName: 'raspberryai',
+			dataFolderName: '.raspberryai',
+			urlProtocol: 'raspberryai',
 			reportIssueUrl: 'https://github.com/microsoft/vscode/issues/new',
 			licenseName: 'MIT',
 			licenseUrl: 'https://github.com/microsoft/vscode/blob/main/LICENSE.txt',

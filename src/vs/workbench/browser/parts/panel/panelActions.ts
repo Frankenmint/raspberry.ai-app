@@ -430,7 +430,7 @@ class MoveblueberryExtensionToAuxBarAction extends MoveViewsBetweenPanelsAction 
             category: Categories.View,
             f1: true
         });
-        this.blueberryExtensionId = 'workbench.view.extension.blueberryAI';
+        this.blueberryExtensionId = 'workbench.view.extension.raspberryai';
     }
 
     override run(accessor: ServicesAccessor): void {
